@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <div>red
+    <div>bule</div>
+  </div>
+  <script>
+    // color
+    d3.select('div').style({
+      'color': 'red'
+    });
+    d3.select('div div').style({
+      'color': 'blue'
+    });
+    // div
+    d3.select('body')
+    .append('div')
+    .html('i am div')
+    .style({
+      'border': '1px solid #000',
+      'width': '120px'
+    });
+   // 圆
+   d3.select('body')
+     .append('svg')
+     .attr({
+       'width':200,
+       'heigth':200
+     });
+     d3.select('svg')
+       .append('circle')
+       .attr({
+         'cx': 50,
+         'cy': 50,
+         'r': 30,
+         'fill': '#f90',
+         'stroke': '#c00',
+         'stroke-width': '5px'
+       });
+  </script>
+</body>
+</html>

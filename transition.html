@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transition, 补间动画, interpolate</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    .box1 {
+      background: red;
+    }
+    .box2 {
+      background: green;
+    }
+    .box3 {
+      background: burlywood;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">.transition()</div>
+  <div class="box2">.transition().duration()</div>
+  <div class="box3">.transition().duration().delay()</div>
+  <script>
+  d3.selectAll('div')
+    .style({
+      'position': 'relative',
+      'color': '#fff',
+      'width': '200px',
+      'height': '200px',
+      'display': 'inline-block',
+      'top':0
+    });
+  d3.select('.box1')
+  .transition()
+  .style({
+    'top': '100px'
+  });
+  d3.select('.box2')
+  .transition()
+  .duration(1000)
+  .style({
+    'top': '100px'
+  });
+  d3.select('.box3')
+  .transition()
+  .duration(1000)
+  .delay(500)
+  .style({
+    'top': '100px'
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <div></div>
+  <script>
+   var data = [38, 69, 72, 42, 58, 87];
+
+d3.select('body').selectAll('div')
+  .data(data)
+  .enter()
+  .append('div')
+  .text(function(d){
+    return d;
+  }).style({
+    'color': function(d){
+      if (d < 60) {
+        return 'red';
+      }
+    },
+    'width': function(d){
+      return d + 'px'
+    },
+    'margin': '2px 0',
+    'background': '#aaa'
+  });
+
+  var computer = [];
+  computer.push('min: '+ d3.min(data));         //最小值
+  computer.push('max: '+ d3.max(data));         //最大值
+  computer.push('sum: '+ d3.sum(data));         //總和
+  computer.push('extent: '+ d3.extent(data));   //最小值與最大值
+  computer.push('mean: '+ d3.mean(data));       //平均數
+  computer.push('shuffle: '+ d3.shuffle(data)); //亂數排列
+  computer.push('min: '+ d3.min(data));         //最小值
+  computer.push('max: '+ d3.max(data));         //最大值
+  computer.push('sum: '+ d3.sum(data));         //總和
+  computer.push('extent: '+ d3.extent(data));   //最小值與最大值
+  computer.push('mean: '+ d3.mean(data));       //平均數
+  computer.push('shuffle: '+ d3.shuffle(data)); //亂數排列
+  d3.select('body')
+    .data(computer)
+    .enter()
+    .append('p')
+    .text(function(d){
+      return d;
+    })
+    .style({
+      'color': '#777'
+    })
+  </script>
+</body>
+</html>
