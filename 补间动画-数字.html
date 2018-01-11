@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    body{
+      margin:100px;
+      background:#000;
+    }
+    #show{
+      margin:0 auto;
+      text-align:center;
+      font-size:100px;
+    }
+    #color{
+      color:#999;
+      margin:0 auto;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+ <div id="show"></div>
+ <div id="color"></div>
+ <script>
+
+window.addEventListener('load',function(){
+   var show = d3.select('#show');
+   var cc = document.getElementById('color');
+   show.transition().duration(2000)
+   .tween('number', function() {
+     var i = d3.interpolateRound('0', '1000');
+     var c = d3.interpolateRgb('#555', '#fa0');
+     return function(t) {
+       this.textContent = i(t);
+       d3.select(this).style({'color':c(t)});
+       console.log(cc.textContent);
+       cc.innerHTML = c(t);
+     };
+   });
+}, false);
+ </script>
+</body>
+</html>

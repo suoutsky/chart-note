@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+  #r {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #eee;
+    background-color: aqua;
+    cursor: pointer;
+    position: relative;
+  }
+  </style>
+</head>
+<body>
+ <div id="r"></div>
+ <script>
+    var drag = d3.behavior.drag()
+       .on('dragstart', function() {
+         console.log(d3.event);
+         react.style({'background': 'red'})
+       })
+       .on('drag', function(){
+         console.log(d3.event);
+         react.style({
+          'left': (d3.event.x-25)+'px',
+          'top':(d3.event.y-25)+'px',
+          'background':'green'
+         });
+       })
+       .on('dragend', function(){
+         console.log(d3.event);
+         react.style({'background':'#000'}); 
+       });
+    var react = d3.select('#r')
+        .style({'left':'50px','top':'50px'})
+        .call(drag);    
+ </script>
+</body>
+</html>
